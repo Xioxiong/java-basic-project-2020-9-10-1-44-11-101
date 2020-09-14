@@ -42,22 +42,17 @@ public class HelloWorldTest {
         Schema schema = new Schema();
         //given
         String string = "-l true -p 8080 -d /usr/logs";
-
         //when
-
-
-
+        Map<String, Object> str = null;
         try {
             String[] result = schema.splitString(string);
             Map<String,Object> strMap = schema.transToMap(result);
-            Map<String, Object> str = schema.verify(strMap);
-            System.out.println(strMap);
+            str = schema.verify(strMap);
+
         } catch (Exception e) {
             e.printStackTrace();
         }
-
         //then
-
-        //assertEquals(actual, "Hello World");
+        System.out.println(str);
     }
 }

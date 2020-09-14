@@ -35,14 +35,16 @@ public class Schema {
 
     public Map<String, Object> verify(Map<String,Object> map)throws Exception{
         if (map.containsKey("l")){
-            if(!(map.get("l") instanceof Boolean)){
+            String key = (String) map.get("l");
+            if(!(key.matches("true|false"))){
                 throw new Exception("参数l的value类型不是布尔");
             }
         }else {
             map.put("l",false);
         }
         if (map.containsKey("p")){
-            if(!(map.get("p") instanceof Integer)){
+            String key = (String) map.get("p");
+            if(!(key.matches("[0-9]+"))){
                 throw new Exception("参数p的value类型不是整型");
             }
         }else {
