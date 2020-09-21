@@ -2,7 +2,6 @@ package com.thoughtworks.basic;
 
 import org.junit.Test;
 
-import java.util.HashMap;
 import java.util.Map;
 
 import static org.junit.Assert.assertEquals;
@@ -39,15 +38,15 @@ public class HelloWorldTest {
     }
     @Test
     public void should_be_verify_schema() {
-        Schema schema = new Schema();
+        SchemaPrevious schemaPrevious = new SchemaPrevious();
         //given
         String string = "-l true -p 8080 -d /usr/logs";
         //when
         Map<String, Object> str = null;
         try {
-            String[] result = schema.splitString(string);
-            Map<String,Object> strMap = schema.transToMap(result);
-            str = schema.verify(strMap);
+            String[] result = schemaPrevious.splitString(string);
+            Map<String,Object> strMap = schemaPrevious.transToMap(result);
+            str = schemaPrevious.verify(strMap);
 
         } catch (Exception e) {
             e.printStackTrace();
